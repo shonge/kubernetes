@@ -52,7 +52,6 @@ import (
 )
 
 const (
-	disablePodPreemption             = false
 	podInitialBackoffDurationSeconds = 1
 	podMaxBackoffDurationSeconds     = 10
 	testSchedulerName                = "test-scheduler"
@@ -453,8 +452,6 @@ func newConfigFactoryWithFrameworkRegistry(
 	return &Configurator{
 		client:                   client,
 		informerFactory:          informerFactory,
-		podInformer:              informerFactory.Core().V1().Pods(),
-		disablePreemption:        disablePodPreemption,
 		percentageOfNodesToScore: schedulerapi.DefaultPercentageOfNodesToScore,
 		podInitialBackoffSeconds: podInitialBackoffDurationSeconds,
 		podMaxBackoffSeconds:     podMaxBackoffDurationSeconds,

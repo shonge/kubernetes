@@ -28,7 +28,7 @@ import (
 	cadvisorapi "github.com/google/cadvisor/info/v1"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"k8s.io/utils/mount"
+	"k8s.io/mount-utils"
 
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
@@ -71,7 +71,7 @@ import (
 	schedulerframework "k8s.io/kubernetes/pkg/scheduler/framework/v1alpha1"
 	"k8s.io/kubernetes/pkg/volume"
 	"k8s.io/kubernetes/pkg/volume/awsebs"
-	"k8s.io/kubernetes/pkg/volume/azure_dd"
+	"k8s.io/kubernetes/pkg/volume/azuredd"
 	"k8s.io/kubernetes/pkg/volume/gcepd"
 	_ "k8s.io/kubernetes/pkg/volume/hostpath"
 	volumetest "k8s.io/kubernetes/pkg/volume/testing"
@@ -215,7 +215,7 @@ func newTestKubeletWithImageList(
 
 	kubelet.cadvisor = &cadvisortest.Fake{}
 	machineInfo, _ := kubelet.cadvisor.MachineInfo()
-	kubelet.machineInfo = machineInfo
+	kubelet.setCachedMachineInfo(machineInfo)
 
 	fakeMirrorClient := podtest.NewFakeMirrorClient()
 	secretManager := secret.NewSimpleSecretManager(kubelet.kubeClient)
@@ -309,7 +309,7 @@ func newTestKubeletWithImageList(
 	} else {
 		allPlugins = append(allPlugins, awsebs.ProbeVolumePlugins()...)
 		allPlugins = append(allPlugins, gcepd.ProbeVolumePlugins()...)
-		allPlugins = append(allPlugins, azure_dd.ProbeVolumePlugins()...)
+		allPlugins = append(allPlugins, azuredd.ProbeVolumePlugins()...)
 	}
 
 	var prober volume.DynamicPluginProber // TODO (#51147) inject mock
@@ -1953,6 +1953,13 @@ func TestSyncPodKillPod(t *testing.T) {
 
 	// Check pod status stored in the status map.
 	checkPodStatus(t, kl, pod, v1.PodFailed)
+}
+
+func TestPreInitRuntimeService(t *testing.T) {
+	err := PreInitRuntimeService(nil, nil, nil, "", "", "", "", "")
+	if err == nil {
+		t.Fatal("PreInitRuntimeService should fail when not configured with a container runtime")
+	}
 }
 
 func waitForVolumeUnmount(

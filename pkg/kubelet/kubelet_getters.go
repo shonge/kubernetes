@@ -26,7 +26,7 @@ import (
 	cadvisorapiv1 "github.com/google/cadvisor/info/v1"
 	cadvisorv2 "github.com/google/cadvisor/info/v2"
 	"k8s.io/klog/v2"
-	"k8s.io/utils/mount"
+	"k8s.io/mount-utils"
 	utilpath "k8s.io/utils/path"
 	utilstrings "k8s.io/utils/strings"
 
@@ -382,5 +382,13 @@ func (kl *Kubelet) GetVersionInfo() (*cadvisorapiv1.VersionInfo, error) {
 
 // GetCachedMachineInfo assumes that the machine info can't change without a reboot
 func (kl *Kubelet) GetCachedMachineInfo() (*cadvisorapiv1.MachineInfo, error) {
+	kl.machineInfoLock.RLock()
+	defer kl.machineInfoLock.RUnlock()
 	return kl.machineInfo, nil
+}
+
+func (kl *Kubelet) setCachedMachineInfo(info *cadvisorapiv1.MachineInfo) {
+	kl.machineInfoLock.Lock()
+	defer kl.machineInfoLock.Unlock()
+	kl.machineInfo = info
 }

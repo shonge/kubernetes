@@ -110,6 +110,9 @@ func NewEndpointController(podInformer coreinformers.PodInformer, serviceInforme
 	e.podLister = podInformer.Lister()
 	e.podsSynced = podInformer.Informer().HasSynced
 
+	endpointsInformer.Informer().AddEventHandler(cache.ResourceEventHandlerFuncs{
+		DeleteFunc: e.onEndpointsDelete,
+	})
 	e.endpointsLister = endpointsInformer.Lister()
 	e.endpointsSynced = endpointsInformer.Informer().HasSynced
 
@@ -287,6 +290,15 @@ func (e *EndpointController) onServiceDelete(obj interface{}) {
 	e.queue.Add(key)
 }
 
+func (e *EndpointController) onEndpointsDelete(obj interface{}) {
+	key, err := controller.KeyFunc(obj)
+	if err != nil {
+		utilruntime.HandleError(fmt.Errorf("Couldn't get key for object %+v: %v", obj, err))
+		return
+	}
+	e.queue.Add(key)
+}
+
 // worker runs a worker thread that just dequeues items, processes them, and
 // marks them done. You may run as many of these in parallel as you wish; the
 // workqueue guarantees that they will not end up processing the same service
@@ -460,9 +472,18 @@ func (e *EndpointController) syncService(key string) error {
 
 	createEndpoints := len(currentEndpoints.ResourceVersion) == 0
 
+	// Compare the sorted subsets and labels
+	// Remove the HeadlessService label from the endpoints if it exists,
+	// as this won't be set on the service itself
+	// and will cause a false negative in this diff check.
+	// But first check if it has that label to avoid expensive copies.
+	compareLabels := currentEndpoints.Labels
+	if _, ok := currentEndpoints.Labels[v1.IsHeadlessService]; ok {
+		compareLabels = utillabels.CloneAndRemoveLabel(currentEndpoints.Labels, v1.IsHeadlessService)
+	}
 	if !createEndpoints &&
 		apiequality.Semantic.DeepEqual(currentEndpoints.Subsets, subsets) &&
-		apiequality.Semantic.DeepEqual(currentEndpoints.Labels, service.Labels) {
+		apiequality.Semantic.DeepEqual(compareLabels, service.Labels) {
 		klog.V(5).Infof("endpoints are equal for %s/%s, skipping update", service.Namespace, service.Name)
 		return nil
 	}

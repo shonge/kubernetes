@@ -39,6 +39,7 @@ NODE_DISK_SIZE=${NODE_DISK_SIZE:-100GB}
 NODE_LOCAL_SSDS=${NODE_LOCAL_SSDS:-0}
 NODE_LABELS=${KUBE_NODE_LABELS:-}
 WINDOWS_NODE_LABELS=${WINDOWS_NODE_LABELS:-}
+NODE_LOCAL_SSDS_EPHEMERAL=${NODE_LOCAL_SSDS_EPHEMERAL:-}
 
 # KUBE_CREATE_NODES can be used to avoid creating nodes, while master will be sized for NUM_NODES nodes.
 # Firewalls and node templates are still created.
@@ -202,7 +203,7 @@ HEAPSTER_MACHINE_TYPE=${HEAPSTER_MACHINE_TYPE:-}
 NUM_ADDITIONAL_NODES=${NUM_ADDITIONAL_NODES:-}
 ADDITIONAL_MACHINE_TYPE=${ADDITIONAL_MACHINE_TYPE:-}
 
-# Set etcd image (e.g. k8s.gcr.io/etcd) and version (e.g. 3.4.9-1) if you need
+# Set etcd image (e.g. k8s.gcr.io/etcd) and version (e.g. 3.4.13-0) if you need
 # non-default version.
 export ETCD_IMAGE=${TEST_ETCD_IMAGE:-}
 export ETCD_DOCKER_REPOSITORY=${TEST_ETCD_DOCKER_REPOSITORY:-}
@@ -233,7 +234,7 @@ fi
 if [[ "${MASTER_OS_DISTRIBUTION}" = 'gci' ]] || [[ "${MASTER_OS_DISTRIBUTION}" = 'ubuntu' ]]; then
   MASTER_KUBELET_TEST_ARGS="${MASTER_KUBELET_TEST_ARGS:-} --kernel-memcg-notification=true"
 fi
-APISERVER_TEST_ARGS="${APISERVER_TEST_ARGS:-} --runtime-config=extensions/v1beta1,scheduling.k8s.io/v1alpha1,settings.k8s.io/v1alpha1 ${TEST_CLUSTER_DELETE_COLLECTION_WORKERS} ${TEST_CLUSTER_MAX_REQUESTS_INFLIGHT}"
+APISERVER_TEST_ARGS="${APISERVER_TEST_ARGS:-} --runtime-config=extensions/v1beta1,scheduling.k8s.io/v1alpha1 ${TEST_CLUSTER_DELETE_COLLECTION_WORKERS} ${TEST_CLUSTER_MAX_REQUESTS_INFLIGHT}"
 CONTROLLER_MANAGER_TEST_ARGS="${CONTROLLER_MANAGER_TEST_ARGS:-} ${TEST_CLUSTER_RESYNC_PERIOD} ${TEST_CLUSTER_API_CONTENT_TYPE}"
 SCHEDULER_TEST_ARGS="${SCHEDULER_TEST_ARGS:-} ${TEST_CLUSTER_API_CONTENT_TYPE}"
 KUBEPROXY_TEST_ARGS="${KUBEPROXY_TEST_ARGS:-} ${TEST_CLUSTER_API_CONTENT_TYPE}"
@@ -405,7 +406,7 @@ fi
 CUSTOM_INGRESS_YAML=${CUSTOM_INGRESS_YAML:-}
 
 if [[ -z "${KUBE_ADMISSION_CONTROL:-}" ]]; then
-  ADMISSION_CONTROL='NamespaceLifecycle,LimitRanger,ServiceAccount,PersistentVolumeLabel,PodPreset,DefaultStorageClass,DefaultTolerationSeconds,NodeRestriction,Priority,StorageObjectInUseProtection,PersistentVolumeClaimResize,RuntimeClass'
+  ADMISSION_CONTROL='NamespaceLifecycle,LimitRanger,ServiceAccount,PersistentVolumeLabel,DefaultStorageClass,DefaultTolerationSeconds,NodeRestriction,Priority,StorageObjectInUseProtection,PersistentVolumeClaimResize,RuntimeClass'
   if [[ "${ENABLE_POD_SECURITY_POLICY:-}" = 'true' ]]; then
     ADMISSION_CONTROL="${ADMISSION_CONTROL},PodSecurityPolicy"
   fi
@@ -467,12 +468,19 @@ ADVANCED_AUDIT_LOG_MODE=${ADVANCED_AUDIT_LOG_MODE:-batch} # batch, blocking
 
 ENABLE_BIG_CLUSTER_SUBNETS=${ENABLE_BIG_CLUSTER_SUBNETS:-false}
 
+# Optional: Enable log rotation for k8s services
+ENABLE_LOGROTATE_FILES="${ENABLE_LOGROTATE_FILES:-false}"
+PROVIDER_VARS="${PROVIDER_VARS:-} ENABLE_LOGROTATE_FILES"
 if [[ -n "${LOGROTATE_FILES_MAX_COUNT:-}" ]]; then
   PROVIDER_VARS="${PROVIDER_VARS:-} LOGROTATE_FILES_MAX_COUNT"
 fi
 if [[ -n "${LOGROTATE_MAX_SIZE:-}" ]]; then
   PROVIDER_VARS="${PROVIDER_VARS:-} LOGROTATE_MAX_SIZE"
 fi
+
+# Optional: Enable log rotation for pod logs
+ENABLE_POD_LOG="${ENABLE_POD_LOG:-false}"
+PROVIDER_VARS="${PROVIDER_VARS:-} ENABLE_POD_LOG"
 
 if [[ -n "${POD_LOG_MAX_FILE:-}" ]]; then
   PROVIDER_VARS="${PROVIDER_VARS:-} POD_LOG_MAX_FILE"
@@ -516,6 +524,13 @@ ENABLE_PROMETHEUS_TO_SD=${ENABLE_PROMETHEUS_TO_SD:-true}
 # TODO(#51292): Make kube-proxy Daemonset default and remove the configuration here.
 # Optional: [Experiment Only] Run kube-proxy as a DaemonSet if set to true, run as static pods otherwise.
 KUBE_PROXY_DAEMONSET=${KUBE_PROXY_DAEMONSET:-false} # true, false
+
+# Control whether the startup scripts manage the lifecycle of kube-proxy
+# When true, the startup scripts do not enable kube-proxy either as a daemonset addon or as a static pod
+# regardless of the value of KUBE_PROXY_DAEMONSET.
+# When false, the value of KUBE_PROXY_DAEMONSET controls whether kube-proxy comes up as a static pod or
+# as an addon daemonset.
+KUBE_PROXY_DISABLE="${KUBE_PROXY_DISABLE:-false}" # true, false
 
 # Optional: Change the kube-proxy implementation. Choices are [iptables, ipvs].
 KUBE_PROXY_MODE=${KUBE_PROXY_MODE:-iptables}

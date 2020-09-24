@@ -25,21 +25,24 @@ github.com/Azure/azure-sdk-for-go/version
 github.com/Azure/go-ansiterm
 # github.com/Azure/go-ansiterm => github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78
 github.com/Azure/go-ansiterm/winterm
-# github.com/Azure/go-autorest/autorest v0.9.6 => github.com/Azure/go-autorest/autorest v0.9.6
+# github.com/Azure/go-autorest v14.2.0+incompatible => github.com/Azure/go-autorest v14.2.0+incompatible
+github.com/Azure/go-autorest
+# github.com/Azure/go-autorest => github.com/Azure/go-autorest v14.2.0+incompatible
+# github.com/Azure/go-autorest/autorest v0.11.1 => github.com/Azure/go-autorest/autorest v0.11.1
 ## explicit
 github.com/Azure/go-autorest/autorest
-# github.com/Azure/go-autorest/autorest => github.com/Azure/go-autorest/autorest v0.9.6
-# github.com/Azure/go-autorest/autorest/adal v0.8.2 => github.com/Azure/go-autorest/autorest/adal v0.8.2
+# github.com/Azure/go-autorest/autorest => github.com/Azure/go-autorest/autorest v0.11.1
+# github.com/Azure/go-autorest/autorest/adal v0.9.0 => github.com/Azure/go-autorest/autorest/adal v0.9.0
 ## explicit
 github.com/Azure/go-autorest/autorest/adal
-# github.com/Azure/go-autorest/autorest/adal => github.com/Azure/go-autorest/autorest/adal v0.8.2
+# github.com/Azure/go-autorest/autorest/adal => github.com/Azure/go-autorest/autorest/adal v0.9.0
 github.com/Azure/go-autorest/autorest/azure
-# github.com/Azure/go-autorest/autorest/date v0.2.0 => github.com/Azure/go-autorest/autorest/date v0.2.0
+# github.com/Azure/go-autorest/autorest/date v0.3.0 => github.com/Azure/go-autorest/autorest/date v0.3.0
 github.com/Azure/go-autorest/autorest/date
-# github.com/Azure/go-autorest/autorest/date => github.com/Azure/go-autorest/autorest/date v0.2.0
-# github.com/Azure/go-autorest/autorest/mocks v0.3.0 => github.com/Azure/go-autorest/autorest/mocks v0.3.0
+# github.com/Azure/go-autorest/autorest/date => github.com/Azure/go-autorest/autorest/date v0.3.0
+# github.com/Azure/go-autorest/autorest/mocks v0.4.0 => github.com/Azure/go-autorest/autorest/mocks v0.4.0
 github.com/Azure/go-autorest/autorest/mocks
-# github.com/Azure/go-autorest/autorest/mocks => github.com/Azure/go-autorest/autorest/mocks v0.3.0
+# github.com/Azure/go-autorest/autorest/mocks => github.com/Azure/go-autorest/autorest/mocks v0.4.0
 # github.com/Azure/go-autorest/autorest/to v0.2.0 => github.com/Azure/go-autorest/autorest/to v0.2.0
 ## explicit
 github.com/Azure/go-autorest/autorest/to
@@ -47,12 +50,12 @@ github.com/Azure/go-autorest/autorest/to
 # github.com/Azure/go-autorest/autorest/validation v0.1.0 => github.com/Azure/go-autorest/autorest/validation v0.1.0
 github.com/Azure/go-autorest/autorest/validation
 # github.com/Azure/go-autorest/autorest/validation => github.com/Azure/go-autorest/autorest/validation v0.1.0
-# github.com/Azure/go-autorest/logger v0.1.0 => github.com/Azure/go-autorest/logger v0.1.0
+# github.com/Azure/go-autorest/logger v0.2.0 => github.com/Azure/go-autorest/logger v0.2.0
 github.com/Azure/go-autorest/logger
-# github.com/Azure/go-autorest/logger => github.com/Azure/go-autorest/logger v0.1.0
-# github.com/Azure/go-autorest/tracing v0.5.0 => github.com/Azure/go-autorest/tracing v0.5.0
+# github.com/Azure/go-autorest/logger => github.com/Azure/go-autorest/logger v0.2.0
+# github.com/Azure/go-autorest/tracing v0.6.0 => github.com/Azure/go-autorest/tracing v0.6.0
 github.com/Azure/go-autorest/tracing
-# github.com/Azure/go-autorest/tracing => github.com/Azure/go-autorest/tracing v0.5.0
+# github.com/Azure/go-autorest/tracing => github.com/Azure/go-autorest/tracing v0.6.0
 # github.com/BurntSushi/toml => github.com/BurntSushi/toml v0.3.1
 # github.com/BurntSushi/xgb => github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802
 # github.com/GoogleCloudPlatform/k8s-cloud-provider v0.0.0-20200415212048-7901bc822317 => github.com/GoogleCloudPlatform/k8s-cloud-provider v0.0.0-20200415212048-7901bc822317
@@ -368,10 +371,10 @@ github.com/emicklei/go-restful/log
 # github.com/euank/go-kmsg-parser v2.0.0+incompatible => github.com/euank/go-kmsg-parser v2.0.0+incompatible
 # github.com/euank/go-kmsg-parser => github.com/euank/go-kmsg-parser v2.0.0+incompatible
 github.com/euank/go-kmsg-parser/kmsgparser
-# github.com/evanphx/json-patch v0.0.0-20190815234213-e83c0a1c26c8 => github.com/evanphx/json-patch v0.0.0-20190815234213-e83c0a1c26c8
+# github.com/evanphx/json-patch v4.9.0+incompatible => github.com/evanphx/json-patch v4.9.0+incompatible
 ## explicit
 github.com/evanphx/json-patch
-# github.com/evanphx/json-patch => github.com/evanphx/json-patch v0.0.0-20190815234213-e83c0a1c26c8
+# github.com/evanphx/json-patch => github.com/evanphx/json-patch v4.9.0+incompatible
 # github.com/exponent-io/jsonpath v0.0.0-20151013193312-d6023ce2651d => github.com/exponent-io/jsonpath v0.0.0-20151013193312-d6023ce2651d
 github.com/exponent-io/jsonpath
 # github.com/exponent-io/jsonpath => github.com/exponent-io/jsonpath v0.0.0-20151013193312-d6023ce2651d
@@ -385,6 +388,9 @@ github.com/fatih/camelcase
 ## explicit
 github.com/fsnotify/fsnotify
 # github.com/fsnotify/fsnotify => github.com/fsnotify/fsnotify v1.4.9
+# github.com/fvbommel/sortorder v1.0.1 => github.com/fvbommel/sortorder v1.0.1
+github.com/fvbommel/sortorder
+# github.com/fvbommel/sortorder => github.com/fvbommel/sortorder v1.0.1
 # github.com/ghodss/yaml v1.0.0 => github.com/ghodss/yaml v1.0.0
 github.com/ghodss/yaml
 # github.com/ghodss/yaml => github.com/ghodss/yaml v1.0.0
@@ -859,10 +865,10 @@ github.com/onsi/gomega/matchers/support/goraph/edge
 github.com/onsi/gomega/matchers/support/goraph/node
 github.com/onsi/gomega/matchers/support/goraph/util
 github.com/onsi/gomega/types
-# github.com/opencontainers/go-digest v1.0.0-rc1 => github.com/opencontainers/go-digest v1.0.0-rc1
+# github.com/opencontainers/go-digest v1.0.0 => github.com/opencontainers/go-digest v1.0.0
 ## explicit
 github.com/opencontainers/go-digest
-# github.com/opencontainers/go-digest => github.com/opencontainers/go-digest v1.0.0-rc1
+# github.com/opencontainers/go-digest => github.com/opencontainers/go-digest v1.0.0
 # github.com/opencontainers/image-spec v1.0.1 => github.com/opencontainers/image-spec v1.0.1
 # github.com/opencontainers/image-spec => github.com/opencontainers/image-spec v1.0.1
 github.com/opencontainers/image-spec/specs-go
@@ -1004,10 +1010,10 @@ github.com/spf13/pflag
 ## explicit
 github.com/spf13/viper
 # github.com/spf13/viper => github.com/spf13/viper v1.4.0
-# github.com/storageos/go-api v0.0.0-20180912212459-343b3eff91fc => github.com/storageos/go-api v0.0.0-20180912212459-343b3eff91fc
+# github.com/storageos/go-api v2.2.0+incompatible => github.com/storageos/go-api v2.2.0+incompatible
 ## explicit
 github.com/storageos/go-api
-# github.com/storageos/go-api => github.com/storageos/go-api v0.0.0-20180912212459-343b3eff91fc
+# github.com/storageos/go-api => github.com/storageos/go-api v2.2.0+incompatible
 github.com/storageos/go-api/netutil
 github.com/storageos/go-api/serror
 github.com/storageos/go-api/types
@@ -1085,15 +1091,14 @@ github.com/vmware/govmomi/vim25/xml
 # github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2 => github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2
 github.com/xiang90/probing
 # github.com/xiang90/probing => github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2
-# github.com/xlab/handysort => github.com/xlab/handysort v0.0.0-20150421192137-fb3537ed64a1
 # github.com/xordataexchange/crypt => github.com/xordataexchange/crypt v0.0.3-0.20170626215501-b2862e3d0a77
 # github.com/yuin/goldmark => github.com/yuin/goldmark v1.1.27
 # go.etcd.io/bbolt v1.3.5 => go.etcd.io/bbolt v1.3.5
 go.etcd.io/bbolt
 # go.etcd.io/bbolt => go.etcd.io/bbolt v1.3.5
-# go.etcd.io/etcd v0.5.0-alpha.5.0.20200716221620-18dfb9cca345 => go.etcd.io/etcd v0.5.0-alpha.5.0.20200716221620-18dfb9cca345
+# go.etcd.io/etcd v0.5.0-alpha.5.0.20200910180754-dd1b699fc489 => go.etcd.io/etcd v0.5.0-alpha.5.0.20200910180754-dd1b699fc489
 ## explicit
-# go.etcd.io/etcd => go.etcd.io/etcd v0.5.0-alpha.5.0.20200716221620-18dfb9cca345
+# go.etcd.io/etcd => go.etcd.io/etcd v0.5.0-alpha.5.0.20200910180754-dd1b699fc489
 go.etcd.io/etcd/auth
 go.etcd.io/etcd/auth/authpb
 go.etcd.io/etcd/client
@@ -1545,6 +1550,7 @@ k8s.io/api/admission/v1
 k8s.io/api/admission/v1beta1
 k8s.io/api/admissionregistration/v1
 k8s.io/api/admissionregistration/v1beta1
+k8s.io/api/apiserverinternal/v1alpha1
 k8s.io/api/apps/v1
 k8s.io/api/apps/v1beta1
 k8s.io/api/apps/v1beta2
@@ -1581,7 +1587,6 @@ k8s.io/api/rbac/v1beta1
 k8s.io/api/scheduling/v1
 k8s.io/api/scheduling/v1alpha1
 k8s.io/api/scheduling/v1beta1
-k8s.io/api/settings/v1alpha1
 k8s.io/api/storage/v1
 k8s.io/api/storage/v1alpha1
 k8s.io/api/storage/v1beta1
@@ -1710,6 +1715,13 @@ k8s.io/apiserver/pkg/admission/configuration
 k8s.io/apiserver/pkg/admission/initializer
 k8s.io/apiserver/pkg/admission/metrics
 k8s.io/apiserver/pkg/admission/plugin/namespace/lifecycle
+k8s.io/apiserver/pkg/admission/plugin/resourcequota
+k8s.io/apiserver/pkg/admission/plugin/resourcequota/apis/resourcequota
+k8s.io/apiserver/pkg/admission/plugin/resourcequota/apis/resourcequota/install
+k8s.io/apiserver/pkg/admission/plugin/resourcequota/apis/resourcequota/v1
+k8s.io/apiserver/pkg/admission/plugin/resourcequota/apis/resourcequota/v1alpha1
+k8s.io/apiserver/pkg/admission/plugin/resourcequota/apis/resourcequota/v1beta1
+k8s.io/apiserver/pkg/admission/plugin/resourcequota/apis/resourcequota/validation
 k8s.io/apiserver/pkg/admission/plugin/webhook
 k8s.io/apiserver/pkg/admission/plugin/webhook/config
 k8s.io/apiserver/pkg/admission/plugin/webhook/config/apis/webhookadmission
@@ -1775,6 +1787,8 @@ k8s.io/apiserver/pkg/endpoints/openapi
 k8s.io/apiserver/pkg/endpoints/request
 k8s.io/apiserver/pkg/endpoints/warning
 k8s.io/apiserver/pkg/features
+k8s.io/apiserver/pkg/quota/v1
+k8s.io/apiserver/pkg/quota/v1/generic
 k8s.io/apiserver/pkg/registry/generic
 k8s.io/apiserver/pkg/registry/generic/registry
 k8s.io/apiserver/pkg/registry/generic/rest
@@ -1869,6 +1883,8 @@ k8s.io/client-go/informers
 k8s.io/client-go/informers/admissionregistration
 k8s.io/client-go/informers/admissionregistration/v1
 k8s.io/client-go/informers/admissionregistration/v1beta1
+k8s.io/client-go/informers/apiserverinternal
+k8s.io/client-go/informers/apiserverinternal/v1alpha1
 k8s.io/client-go/informers/apps
 k8s.io/client-go/informers/apps/v1
 k8s.io/client-go/informers/apps/v1beta1
@@ -1916,8 +1932,6 @@ k8s.io/client-go/informers/scheduling
 k8s.io/client-go/informers/scheduling/v1
 k8s.io/client-go/informers/scheduling/v1alpha1
 k8s.io/client-go/informers/scheduling/v1beta1
-k8s.io/client-go/informers/settings
-k8s.io/client-go/informers/settings/v1alpha1
 k8s.io/client-go/informers/storage
 k8s.io/client-go/informers/storage/v1
 k8s.io/client-go/informers/storage/v1alpha1
@@ -1929,6 +1943,8 @@ k8s.io/client-go/kubernetes/typed/admissionregistration/v1
 k8s.io/client-go/kubernetes/typed/admissionregistration/v1/fake
 k8s.io/client-go/kubernetes/typed/admissionregistration/v1beta1
 k8s.io/client-go/kubernetes/typed/admissionregistration/v1beta1/fake
+k8s.io/client-go/kubernetes/typed/apiserverinternal/v1alpha1
+k8s.io/client-go/kubernetes/typed/apiserverinternal/v1alpha1/fake
 k8s.io/client-go/kubernetes/typed/apps/v1
 k8s.io/client-go/kubernetes/typed/apps/v1/fake
 k8s.io/client-go/kubernetes/typed/apps/v1beta1
@@ -1999,8 +2015,6 @@ k8s.io/client-go/kubernetes/typed/scheduling/v1alpha1
 k8s.io/client-go/kubernetes/typed/scheduling/v1alpha1/fake
 k8s.io/client-go/kubernetes/typed/scheduling/v1beta1
 k8s.io/client-go/kubernetes/typed/scheduling/v1beta1/fake
-k8s.io/client-go/kubernetes/typed/settings/v1alpha1
-k8s.io/client-go/kubernetes/typed/settings/v1alpha1/fake
 k8s.io/client-go/kubernetes/typed/storage/v1
 k8s.io/client-go/kubernetes/typed/storage/v1/fake
 k8s.io/client-go/kubernetes/typed/storage/v1alpha1
@@ -2009,6 +2023,7 @@ k8s.io/client-go/kubernetes/typed/storage/v1beta1
 k8s.io/client-go/kubernetes/typed/storage/v1beta1/fake
 k8s.io/client-go/listers/admissionregistration/v1
 k8s.io/client-go/listers/admissionregistration/v1beta1
+k8s.io/client-go/listers/apiserverinternal/v1alpha1
 k8s.io/client-go/listers/apps/v1
 k8s.io/client-go/listers/apps/v1beta1
 k8s.io/client-go/listers/apps/v1beta2
@@ -2040,11 +2055,11 @@ k8s.io/client-go/listers/rbac/v1beta1
 k8s.io/client-go/listers/scheduling/v1
 k8s.io/client-go/listers/scheduling/v1alpha1
 k8s.io/client-go/listers/scheduling/v1beta1
-k8s.io/client-go/listers/settings/v1alpha1
 k8s.io/client-go/listers/storage/v1
 k8s.io/client-go/listers/storage/v1alpha1
 k8s.io/client-go/listers/storage/v1beta1
 k8s.io/client-go/metadata
+k8s.io/client-go/metadata/fake
 k8s.io/client-go/metadata/metadatainformer
 k8s.io/client-go/metadata/metadatalister
 k8s.io/client-go/pkg/apis/clientauthentication
@@ -2230,9 +2245,9 @@ k8s.io/kube-aggregator/pkg/registry/apiservice/rest
 ## explicit
 # k8s.io/kube-controller-manager => ./staging/src/k8s.io/kube-controller-manager
 k8s.io/kube-controller-manager/config/v1alpha1
-# k8s.io/kube-openapi v0.0.0-20200427153329-656914f816f9 => k8s.io/kube-openapi v0.0.0-20200427153329-656914f816f9
+# k8s.io/kube-openapi v0.0.0-20200805222855-6aeccd4b50c6 => k8s.io/kube-openapi v0.0.0-20200805222855-6aeccd4b50c6
 ## explicit
-# k8s.io/kube-openapi => k8s.io/kube-openapi v0.0.0-20200427153329-656914f816f9
+# k8s.io/kube-openapi => k8s.io/kube-openapi v0.0.0-20200805222855-6aeccd4b50c6
 k8s.io/kube-openapi/cmd/openapi-gen
 k8s.io/kube-openapi/cmd/openapi-gen/args
 k8s.io/kube-openapi/pkg/aggregator
@@ -2345,6 +2360,8 @@ k8s.io/kubectl/pkg/validation
 k8s.io/kubelet/config/v1beta1
 k8s.io/kubelet/pkg/apis/deviceplugin/v1beta1
 k8s.io/kubelet/pkg/apis/pluginregistration/v1
+k8s.io/kubelet/pkg/apis/podresources/v1alpha1
+k8s.io/kubelet/pkg/apis/stats/v1alpha1
 # k8s.io/legacy-cloud-providers v0.0.0 => ./staging/src/k8s.io/legacy-cloud-providers
 ## explicit
 # k8s.io/legacy-cloud-providers => ./staging/src/k8s.io/legacy-cloud-providers
@@ -2413,6 +2430,10 @@ k8s.io/metrics/pkg/client/custom_metrics/fake
 k8s.io/metrics/pkg/client/custom_metrics/scheme
 k8s.io/metrics/pkg/client/external_metrics
 k8s.io/metrics/pkg/client/external_metrics/fake
+# k8s.io/mount-utils v0.0.0 => ./staging/src/k8s.io/mount-utils
+## explicit
+k8s.io/mount-utils
+# k8s.io/mount-utils => ./staging/src/k8s.io/mount-utils
 # k8s.io/sample-apiserver v0.0.0 => ./staging/src/k8s.io/sample-apiserver
 ## explicit
 # k8s.io/sample-apiserver => ./staging/src/k8s.io/sample-apiserver
@@ -2442,9 +2463,9 @@ k8s.io/sample-apiserver/pkg/registry/wardle/fischer
 k8s.io/sample-apiserver/pkg/registry/wardle/flunder
 # k8s.io/sample-cli-plugin => ./staging/src/k8s.io/sample-cli-plugin
 # k8s.io/sample-controller => ./staging/src/k8s.io/sample-controller
-# k8s.io/system-validators v1.1.2 => k8s.io/system-validators v1.1.2
+# k8s.io/system-validators v1.2.0 => k8s.io/system-validators v1.2.0
 ## explicit
-# k8s.io/system-validators => k8s.io/system-validators v1.1.2
+# k8s.io/system-validators => k8s.io/system-validators v1.2.0
 k8s.io/system-validators/validators
 # k8s.io/utils v0.0.0-20200729134348-d5654de09c73 => k8s.io/utils v0.0.0-20200729134348-d5654de09c73
 ## explicit
@@ -2459,6 +2480,7 @@ k8s.io/utils/io
 k8s.io/utils/keymutex
 k8s.io/utils/mount
 k8s.io/utils/net
+k8s.io/utils/net/ebtables
 k8s.io/utils/nsenter
 k8s.io/utils/path
 k8s.io/utils/pointer
@@ -2499,17 +2521,14 @@ sigs.k8s.io/kustomize/pkg/transformers
 sigs.k8s.io/kustomize/pkg/transformers/config
 sigs.k8s.io/kustomize/pkg/transformers/config/defaultconfig
 sigs.k8s.io/kustomize/pkg/types
-# sigs.k8s.io/structured-merge-diff/v3 v3.0.1-0.20200706213357-43c19bbb7fba => sigs.k8s.io/structured-merge-diff/v3 v3.0.1-0.20200706213357-43c19bbb7fba
-# sigs.k8s.io/structured-merge-diff/v3 => sigs.k8s.io/structured-merge-diff/v3 v3.0.1-0.20200706213357-43c19bbb7fba
-sigs.k8s.io/structured-merge-diff/v3/fieldpath
-sigs.k8s.io/structured-merge-diff/v3/merge
-sigs.k8s.io/structured-merge-diff/v3/schema
-sigs.k8s.io/structured-merge-diff/v3/typed
-sigs.k8s.io/structured-merge-diff/v3/value
+# sigs.k8s.io/structured-merge-diff/v4 v4.0.1 => sigs.k8s.io/structured-merge-diff/v4 v4.0.1
+# sigs.k8s.io/structured-merge-diff/v4 => sigs.k8s.io/structured-merge-diff/v4 v4.0.1
+sigs.k8s.io/structured-merge-diff/v4/fieldpath
+sigs.k8s.io/structured-merge-diff/v4/merge
+sigs.k8s.io/structured-merge-diff/v4/schema
+sigs.k8s.io/structured-merge-diff/v4/typed
+sigs.k8s.io/structured-merge-diff/v4/value
 # sigs.k8s.io/yaml v1.2.0 => sigs.k8s.io/yaml v1.2.0
 ## explicit
 sigs.k8s.io/yaml
 # sigs.k8s.io/yaml => sigs.k8s.io/yaml v1.2.0
-# vbom.ml/util v0.0.0-20160121211510-db5cfe13f5cc => vbom.ml/util v0.0.0-20160121211510-db5cfe13f5cc
-# vbom.ml/util => vbom.ml/util v0.0.0-20160121211510-db5cfe13f5cc
-vbom.ml/util/sortorder

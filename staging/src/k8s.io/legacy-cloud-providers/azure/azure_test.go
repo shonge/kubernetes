@@ -1257,7 +1257,7 @@ func TestReconcileSecurityGroupEtagMismatch(t *testing.T) {
 
 	newSG, err := az.reconcileSecurityGroup(testClusterName, &svc1, &lbStatus.Ingress[0].IP, true /* wantLb */)
 	assert.Nil(t, newSG)
-	assert.NotNil(t, err)
+	assert.Error(t, err)
 
 	assert.Equal(t, expectedError.Error(), err)
 }
@@ -2180,7 +2180,7 @@ func TestGetNodeNameByProviderID(t *testing.T) {
 	}
 
 	for _, test := range providers {
-		name, err := az.vmSet.GetNodeNameByProviderID(test.providerID)
+		name, err := az.VMSet.GetNodeNameByProviderID(test.providerID)
 		if (err != nil) != test.fail {
 			t.Errorf("Expected to fail=%t, with pattern %v", test.fail, test)
 		}
